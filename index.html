@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+</head>
+
+<body>
+  <style>
+  canvas {
+    border: dotted 1px;
+    padding:0;
+    background: lightgray;
+  }
+  </style>
+
+  <div style="border: 5px solid blue; padding: 15px;">
+    <p><b>Player 1 view</b> - move with LEFT and RIGHT arrow keys<br> Lag = <input type="text" id="player1_lag" size=5 value="250" onchange="updateParameters();">ms</input> · <input type="checkbox" id="player1_prediction" onchange="updateParameters();">Prediction</input> · <input type="checkbox" id="player1_reconciliation" onchange="updateParameters();">Reconciliation</input> · <input type="checkbox" id="player1_interpolation" onchange="updateParameters();">Interpolation</input></p>
+    <canvas id="player1_canvas" width="920" height="75"></canvas>
+    <div id="player1_status" style="font-family:courier;">Waiting for connection…</div>
+  </div>
+
+  <div style="height: 1em;"></div>
+
+  <div style="border: 2px solid grey; padding: 15px;">
+    <p><b>Server view</b> · Update <input type="text" id="server_fps" size=5 value="3" onchange="updateParameters();"> times per second</input></p>
+    <canvas id="server_canvas" width="920" height="75"></canvas>
+    <div id="server_status" style="font-family:courier;"></div>
+  </div>
+
+  <div style="height: 1em;"></div>
+
+  <div style="border: 5px solid red; padding: 15px;">
+    <p><b>Player 2 view</b> - move with A and D keys<br> Lag = <input type="text" id="player2_lag" size=5 value="150" onchange="updateParameters();">ms</input> · <input type="checkbox" id="player2_prediction" onchange="updateParameters();">Prediction</input> · <input type="checkbox" id="player2_reconciliation" onchange="updateParameters();">Reconciliation</input> · <input type="checkbox" id="player2_interpolation" onchange="updateParameters();">Interpolation</input></p>
+    <canvas id="player2_canvas" width="920" height="75"></canvas>
+    <div id="player2_status" style="font-family:courier;">Waiting for connection…</div>
+  </div>
+
+  <script src="scr/Entity.js"></script>
+  <script src="scr/LagNetwork.js"></script>
+  <script src="scr/Client.js"></script>
+  <script src="scr/Server.js"></script>
+  <script src="scr/Helpers.js"></script>
+  <script src="scr/index.js"></script>
+</body>
+</html>
